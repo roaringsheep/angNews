@@ -1,0 +1,19 @@
+<div class="container">
+<a href="{{post.link}}" target="_blank">{{post.title}}</a>
+<br>
+<hr>
+<div ng-repeat="comment in post.comments | orderBy: 'like' : 'reverse' ">
+	<div>
+		{{comment.like}} | {{comment.body}} 
+		<button ng-click="like(comment)" class="btn btn-primary btn-xs">Like</button>
+		<button ng-click="dislike(comment)" class="btn btn-danger btn-xs">Dislike</button>
+	</div>
+</div>
+<hr>
+
+  <form>
+  <textarea ng-model="comment.body"></textarea>
+  <button ng-click="addComment()"class="btn btn-primary">Submit</button>
+  </form>
+
+</div>

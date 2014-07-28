@@ -1,0 +1,23 @@
+<form>
+  <label>Title</label>
+  <input type="text" ng-model="post.title">
+  <label>Link Address</label>
+  <input type="text" ng-model="post.link">
+  <button class="btn btn-default" ng-click="postData(post)">Post</button>
+</form>
+<br>
+<hr>
+<div ng-repeat="(id, data) in dataz | orderBy: 'like':'reverse'">
+  <div>
+  	<big>{{data.like}}</big>
+  	<button ng-click="upVote(data)" class="btn btn-success btn-xs">Up</button>
+  	<button ng-click="downVote(data)" class="btn btn-danger btn-xs">Down</button>
+    <a href="{{data.link}}" target="_blank">{{data.title}} | {{data.link}} | {{id}}</a>
+    <button ng-click="deletePost(data._id)" class="btn btn-danger btn-xs">X</button>
+    <a href="#/comment/{{data._id}}" class="btn btn-warning btn-xs">Comment</a>
+    <hr>
+  </div>
+</div>
+<div>
+<iframe style="border: 1px solid #999; width: 100%; height: 500px; background-color: #fff;" src="http://www.drawacat.net/cat/6501/kitty?embed=true" height="240" width="320" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</div>
